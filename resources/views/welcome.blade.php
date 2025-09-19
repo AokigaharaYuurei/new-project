@@ -16,6 +16,8 @@
     <body >
         <h1>Заголовок</h1>
 
+        <a href="{{route('about')}}">О нас</a>
+        <a href="/contact">Контакты</a>
 
         <div class="container">
             @for($i=1; $i<=12; $i++)
@@ -26,5 +28,7 @@
             </div>
             @endfor
         </div>
+
+       
     </body>
 </html> 
