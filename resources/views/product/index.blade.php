@@ -9,9 +9,10 @@
 <body>
     <h1>Каталог товаров</h1>
     <div class="container">
+        <a href="{{ route('products.create') }}">Создать новый продукт</a>
         @foreach($products as $product)
            <div class="card">
-            <p>{{ $product->name }}</p>
+            <a href="{{ route('products.show', $product->id) }}"><p>{{ $product->name }}</p></a>
             <p>{{ $product->description }}</p>
             <p>Цена: {{ $product->price }} &#8381</p> 
             <form method="POST" action="{{route('products.destroy', $product->id)}}">
