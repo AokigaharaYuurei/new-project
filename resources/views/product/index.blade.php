@@ -8,13 +8,14 @@
 </head>
 <body>
     <h1>Каталог товаров</h1>
+    <a href="{{ route('products.create') }}">Создать новый продукт</a>
     <div class="container">
-        <a href="{{ route('products.create') }}">Создать новый продукт</a>
         @foreach($products as $product)
            <div class="card">
             <a href="{{ route('products.show', $product->id) }}"><p>{{ $product->name }}</p></a>
             <p>{{ $product->description }}</p>
             <p>Цена: {{ $product->price }} &#8381</p> 
+            <p>Категория {{$product->category->name}}</p>
             <form method="POST" action="{{route('products.destroy', $product->id)}}">
                 @csrf
                 @method('delete')
@@ -22,8 +23,6 @@
             </form>
             <hr>
            </div>
-           
-           
         @endforeach
     </div>
 </body>
