@@ -4,13 +4,17 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\Buyer;
+use App\Models\category;
 
 class ProductController extends Controller
 {
     public function index()
     {
         $products = Product::all();
-        return view("Product.index", compact('products') );
+        $buyer = Buyer::find(1);
+        $categories = category::all();
+        return view("Product.index", compact('products', 'buyer', 'categories') );
     }
 
     public function destroy(Product $product)
